@@ -34,7 +34,7 @@ public class SaleService {
         Page<Sale> result = repository.findAll(pageable);
 
         //exibir a lista
-        return result.map(x -> new SaleDTO(x));
+        return result.map(SaleDTO::new);
     }
 
     @Transactional(readOnly = true)

@@ -11,8 +11,6 @@ public class SellerDTO implements Serializable {
 
     private String name;
 
-
-
     public SellerDTO() {
 
     }

@@ -19,18 +19,21 @@ public class SaleDTO implements Serializable {
 
     private LocalDate date;
 
+    private String name;
+
     //obj aninhado
     private SellerDTO seller;
 
     public SaleDTO() {
     }
 
-    public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date) {
+    public SaleDTO(Long id, Integer visited, Integer deals, Double amount, LocalDate date, SellerDTO seller) {
         this.id = id;
         this.visited = visited;
         this.deals = deals;
         this.amount = amount;
         this.date = date;
+        this.seller = seller;
     }
 
     public SaleDTO(Sale entity) {
@@ -40,6 +43,14 @@ public class SaleDTO implements Serializable {
         amount = entity.getAmount();
         date = entity.getDate();
         seller = new SellerDTO(entity.getSeller());
+    }
+
+    public SellerDTO getSeller() {
+        return seller;
+    }
+
+    public void setSeller(SellerDTO seller) {
+        this.seller = seller;
     }
 
     public static long getSerialVersionUID() {
